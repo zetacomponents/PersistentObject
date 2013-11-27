@@ -183,6 +183,15 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         $this->assertEquals( $employer1, $employer2 );
     }
 
+    /**
+     * @expectedException ezcPersistentRelatedObjectNotFoundException
+     */
+    public function testGetRelatedObjectNotFound()
+    {
+        $person = $this->idSession->load( "RelationTestPerson", 4 );
+        $this->idSession->getRelatedObject( $person, "RelationTestEmployer" );
+    }
+
     public function testAddRelatedObjectEmployerFailureReverse()
     {
         $person = $this->idSession->load( "RelationTestPerson", 2 );
