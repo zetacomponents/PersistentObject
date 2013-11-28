@@ -25,7 +25,7 @@
  * @subpackage Tests
  */
 
-require_once 'PersistentObject/tests/persistent_session/test_case.php';
+require_once dirname(__FILE__) . '/../persistent_session/test_case.php';
 
 /**
  * Tests the code manager.
