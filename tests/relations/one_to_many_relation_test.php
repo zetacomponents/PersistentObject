@@ -596,7 +596,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         $this->assertEquals(
             2,
             $stmt->fetchColumn(),
-            "Persons cascaded from employer not deletec correctly."
+            "Persons cascaded from employer not deleted correctly."
         );
         unset( $q, $stmt );
         
