@@ -682,6 +682,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      *
      * @return object($relatedClass)
      *
+     * @throws ezcPersistentRelationNotFoundException
+     *         if the given $object does not have a relation to $relatedClass.
+     *
      * @throws ezcPersistentRelatedObjectNotFoundException
      *         if there is no object of $relatedClass found for $object
      */
