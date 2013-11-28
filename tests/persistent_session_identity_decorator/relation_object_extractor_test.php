@@ -164,6 +164,10 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         );
 
         $fakeFind = $this->session->createFindQuery( 'RelationTestPerson' );
+        // ignore Persons where employer is not set
+        $fakeFind->where(
+            $fakeFind->expr->neq('employer', 0)
+        );
         $fakeRes = $this->session->find( $fakeFind );
 
         $this->assertEquals(
@@ -488,6 +492,10 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         );
 
         $fakeFind = $this->session->createFindQuery( 'RelationTestPerson' );
+        // ignore Persons where employer is not set
+        $fakeFind->where(
+            $fakeFind->expr->neq('employer', 0)
+        );
         $fakeRes = $this->session->find( $fakeFind );
 
         $this->assertEquals(
@@ -622,6 +630,10 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         );
 
         $fakeFind = $this->session->createFindQuery( 'RelationTestPerson' );
+        // ignore Persons where employer is not set
+        $fakeFind->where(
+            $fakeFind->expr->neq('employer', 0)
+        );
         $fakeRes = $this->session->find( $fakeFind );
 
         $this->assertEquals(
