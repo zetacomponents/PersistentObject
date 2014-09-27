@@ -1,4 +1,4 @@
-1.8 - Friday 19 September 2014
+1.8 - Saturday 27 September 2014
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Fixed: Adjusted source headers of PersistentObject to Apache license.
@@ -7,10 +7,6 @@
 - Fixed #ZETACOMP-33: Many dead links (404)
 - Remove custom test runner.
 - Fix autoloading with composer
-
-1.7.1 - [RELEASEDATE]
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 - Fixed issue #15657: Column names are now converted to lower case to extract
   from database results, since this is the setting defined by the Database
   component.
