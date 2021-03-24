@@ -244,7 +244,7 @@ class ezcPersistentKeywordTest extends ezcTestCase
         $this->session->save( $rel );
 
         $this->session->addRelatedObject( $object, $rel );
-        $this->assertNotEquals( count( $this->session->getRelatedObject( $object, "Like" ) ), 0 );
+        $this->assertInstanceOf('Like', $this->session->getRelatedObject( $object, "Like" ));
     }
 
     public function testNMgetRelatedObjects()
