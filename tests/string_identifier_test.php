@@ -254,7 +254,7 @@ class ezcPersistentStringIdentifierTest extends ezcTestCase
         $this->session->save( $rel );
 
         $this->session->addRelatedObject( $object, $rel );
-        $this->assertNotEquals( count( $this->session->getRelatedObject( $object, "Rel2" ) ), 0 );
+        $this->assertInstanceOf( 'Rel2', $this->session->getRelatedObject( $object, "Rel2" ) );
     }
 
     public function testNMgetRelatedObjects()
