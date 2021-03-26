@@ -393,7 +393,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         $this->session->save( $person );
 
         $res = RelationTestPerson::__set_state(array(
-            'id' => 4,
+            'id' => 5,
             'firstname' => 'Jan',
             'surname' => 'Soap',
             'employer' => 2,
@@ -457,14 +457,14 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         $res = array(
           0 =>
           RelationTestPerson::__set_state(array(
-             'id' => 4,
+             'id' => 5,
              'firstname' => 'Tobias',
              'surname' => 'Preprocess',
              'employer' => 2,
           )),
           1 =>
           RelationTestPerson::__set_state(array(
-             'id' => 5,
+             'id' => 6,
              'firstname' => 'Jan',
              'surname' => 'Soap',
              'employer' => 2,
@@ -594,9 +594,9 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         $stmt->execute();
 
         $this->assertEquals(
-            2,
+            3,
             $stmt->fetchColumn(),
-            "Persons cascaded from employer not deletec correctly."
+            "Persons cascaded from employer not deleted correctly."
         );
         unset( $q, $stmt );
 
