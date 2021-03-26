@@ -49,6 +49,7 @@
     },
     "require-dev": {
         "zetacomponents/database": "*",
+        "zetacomponents/database-schema": "*",
         "zetacomponents/unit-test": "*"
     }
 }

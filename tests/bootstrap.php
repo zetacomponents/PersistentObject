@@ -12,3 +12,6 @@ phpunit
 EOT
        );
 }
+
+$handler = ezcDbFactory::create( 'sqlite://:memory:' );
+ezcDbInstance::set( $handler );
