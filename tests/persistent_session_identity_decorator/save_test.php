@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,11 +37,11 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     // update
-    
+
     public function testUpdateValid()
     {
         $object = $this->idSession->loadIfExists( 'PersistentTestObject', 1 );
@@ -92,7 +92,7 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
 
         $q = $this->idSession->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->idSession->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -112,10 +112,10 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
         $arr[5]->integer = new DateTime( '@327535200' );
 
         $this->idSession->update( $arr[5] );
-        
+
         $q = $this->idSession->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->idSession->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -151,13 +151,13 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
         $obj->text    = 'Foo Bar Baz';
 
         $this->idSession->save( $obj );
-        
+
         $this->assertSame(
             $date,
             $obj->integer
         );
     }
-    
+
     public function testNoConversionOnUpdate()
     {
         $obj = new PersistentTestObjectConverter();
@@ -171,7 +171,7 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
 
         $q = $this->idSession->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->idSession->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -197,10 +197,10 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
         $arr[5]->integer = null;
 
         $this->idSession->update( $arr[5] );
-        
+
         $q = $this->idSession->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->idSession->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -317,7 +317,7 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
         $this->assertEquals( 5, $object->id );
 
         $secondObject->id = 5;
-        
+
         try
         {
             $this->idSession->save( $secondObject );
@@ -339,7 +339,7 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
 
         $q = $this->idSession->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->idSession->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -377,7 +377,7 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
 
         $q = $this->idSession->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->idSession->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -468,7 +468,7 @@ class ezcPersistentSessionIdentityDecoratorSaveTest extends ezcPersistentSession
             $this->idMap->getIdentity( 'PersistentTestObject', 2 )
         );
     }
-    
+
 }
 
 ?>

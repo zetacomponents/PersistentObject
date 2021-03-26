@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -35,7 +35,7 @@ class ezcPersistentRelationCollectionTest extends ezcTestCase
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function testCtor()
@@ -53,14 +53,14 @@ class ezcPersistentRelationCollectionTest extends ezcTestCase
     public function testOffsetSetOffsetFailure()
     {
         $col = new ezcPersistentRelationCollection();
-        
+
         try
         {
             $col[23] = new ezcPersistentOneToManyRelation( 'src', 'tbl' );
             $this->fail( 'Exception not thrown on invalid offset.' );
         }
         catch ( ezcBaseValueException $e ) {}
-        
+
         try
         {
             $col[''] = new ezcPersistentOneToManyRelation( 'src', 'tbl' );
@@ -72,21 +72,21 @@ class ezcPersistentRelationCollectionTest extends ezcTestCase
     public function testOffsetSetValueFailure()
     {
         $col = new ezcPersistentRelationCollection();
-        
+
         try
         {
             $col['foo'] = array();
             $this->fail( 'Exception not thrown on invalid offset.' );
         }
         catch ( ezcBaseValueException $e ) {}
-        
+
         try
         {
             $col['foo'] = new stdClass();
             $this->fail( 'Exception not thrown on invalid value.' );
         }
         catch ( ezcBaseValueException $e ) {}
-        
+
         try
         {
             $col['foo'] = 'bar';
@@ -98,7 +98,7 @@ class ezcPersistentRelationCollectionTest extends ezcTestCase
     public function testOffsetSetGetSuccess()
     {
         $col = new ezcPersistentRelationCollection();
-        
+
         $rel        = new ezcPersistentOneToManyRelation( 'src', 'dest' );
         $col['foo'] = $rel;
 
@@ -111,7 +111,7 @@ class ezcPersistentRelationCollectionTest extends ezcTestCase
     public function testExchangeArraySuccess()
     {
         $col = new ezcPersistentRelationCollection();
-        
+
         $rel       = new ezcPersistentOneToManyRelation( 'src', 'dest' );
         $secondRel = new ezcPersistentOneToManyRelation( 'src2', 'dst2' );
 

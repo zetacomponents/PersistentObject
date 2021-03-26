@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -35,7 +35,7 @@ class ezcPersistentPropertyDateTimeConverterTest extends ezcTestCase
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( 'ezcPersistentPropertyDateTimeConverterTest' );
+        return new \PHPUnit\Framework\TestSuite( 'ezcPersistentPropertyDateTimeConverterTest' );
     }
 
     public function testFromDatabaseSuccess()
@@ -53,7 +53,7 @@ class ezcPersistentPropertyDateTimeConverterTest extends ezcTestCase
             $conv->fromDatabase( -1000 ),
             'Conversion of positive time stamp from database failed.'
         );
-        
+
         $this->assertEquals(
             new DateTime( '@327535200' ),
             $conv->fromDatabase( '327535200' ),
@@ -110,7 +110,7 @@ class ezcPersistentPropertyDateTimeConverterTest extends ezcTestCase
             'Conversion of null value failed.'
         );
     }
-    
+
     public function testToDatabaseFailure()
     {
         $conv = new ezcPersistentPropertyDateTimeConverter();

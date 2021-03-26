@@ -48,6 +48,7 @@
         "zetacomponents/base": "~1.8"
     },
     "require-dev": {
+        "zetacomponents/database": "*",
         "zetacomponents/unit-test": "*"
     }
 }

@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -43,7 +43,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( "ezcPersistentOneToManyRelationTest" );
+        return new \PHPUnit\Framework\TestSuite( "ezcPersistentOneToManyRelationTest" );
     }
 
     public function setup()
@@ -68,7 +68,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
     {
         RelationTestEmployer::cleanup();
     }
-    
+
     // Tests of the relation definition class
 
     public function testGetAccessSuccess()
@@ -95,7 +95,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         }
         $this->fail( "Exception not thrown on access of non existent property." );
     }
-    
+
     public function testIssetAccessSuccess()
     {
         $relation = new ezcPersistentOneToManyRelation( "PO_persons", "PO_addresses" );
@@ -156,7 +156,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         catch ( ezcBaseValueException $e )
         {
         }
-        
+
         try
         {
             $relation->columnMap = array();
@@ -193,7 +193,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         {
         }
     }
-    
+
     // Tests using the actual relation definition
 
     public function testGetRelatedObjectsFromEmployer1Success()
@@ -201,14 +201,14 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         $employer = $this->session->load( "RelationTestEmployer", 1 );
 
         $res = array(
-          2 => 
+          2 =>
           RelationTestPerson::__set_state(array(
              'id' => '2',
              'firstname' => 'Frederick',
              'surname' => 'Ajax',
              'employer' => '1',
           )),
-          3 => 
+          3 =>
           RelationTestPerson::__set_state(array(
              'id' => '3',
              'firstname' => 'Raymond',
@@ -228,7 +228,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
     {
         $employer = $this->session->load( "RelationTestEmployer", 2 );
         $res = array(
-            1 => 
+            1 =>
             RelationTestPerson::__set_state(array(
                 'id' => '1',
                 'firstname' => 'Theodor',
@@ -249,7 +249,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         $q = $this->session->createRelationFindQuery( $employer, 'RelationTestPerson' );
 
         $res = array(
-            1 => 
+            1 =>
             RelationTestPerson::__set_state(array(
                 'id' => '1',
                 'firstname' => 'Theodor',
@@ -263,7 +263,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
             "Related RelationTestPerson objects not fetched correctly."
         );
     }
-    
+
     public function testGetRelatedObjectFromEmployer1Success()
     {
         $employer = $this->session->load( "RelationTestEmployer", 1 );
@@ -332,14 +332,14 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         }
 
         $res = array (
-            0 => 
+            0 =>
             RelationTestPerson::__set_state(array(
                 'id' => null,
                 'firstname' => 'Tobias',
                 'surname' => 'Preprocess',
                 'employer' => 2,
             )),
-            1 => 
+            1 =>
             RelationTestPerson::__set_state(array(
                 'id' => null,
                 'firstname' => 'Jan',
@@ -455,14 +455,14 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
         }
 
         $res = array(
-          0 => 
+          0 =>
           RelationTestPerson::__set_state(array(
              'id' => 4,
              'firstname' => 'Tobias',
              'surname' => 'Preprocess',
              'employer' => 2,
           )),
-          1 => 
+          1 =>
           RelationTestPerson::__set_state(array(
              'id' => 5,
              'firstname' => 'Jan',
@@ -541,7 +541,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
                 $this->session->find( $q, "RelationTestPerson" ),
                 "Cascade not performed correctly to RelationTestPerson on delete."
             );
-            
+
             // Check that all birthdays of the persons got deleted
             $q = $this->session->createFindQuery( "RelationTestBirthday" );
             $q->where(
@@ -586,7 +586,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
             "Employer not correctly deleted directly."
         );
         unset( $q, $stmt );
-        
+
         $q = $this->session->database->createSelectQuery();
         $q->select( "COUNT(*)" )->from( $this->session->database->quoteIdentifier( "PO_persons" ) );
 
@@ -599,7 +599,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
             "Persons cascaded from employer not deletec correctly."
         );
         unset( $q, $stmt );
-        
+
         $q = $this->session->database->createSelectQuery();
         $q->select( "COUNT(*)" )->from( $this->session->database->quoteIdentifier( "PO_persons_addresses" ) );
 
@@ -612,7 +612,7 @@ class ezcPersistentOneToManyRelationTest extends ezcTestCase
             "Relations from person to address not correctly removed."
         );
         unset( $q, $stmt );
-        
+
         $q = $this->session->database->createSelectQuery();
         $q->select( "COUNT(*)" )->from( $this->session->database->quoteIdentifier( "PO_birthdays" ) );
 

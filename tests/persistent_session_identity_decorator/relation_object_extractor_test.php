@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -45,7 +45,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function setup()
@@ -81,7 +81,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -100,7 +100,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $employers = $this->idMap->getRelatedObjects(
             $person, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $employers );
 
         $this->assertEquals( 1, count( $employers ) );
@@ -115,7 +115,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getFindQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -153,7 +153,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
                 $q->bindValue( '%Web%' )
             )
         );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -202,7 +202,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         // Perform query and extraction
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -218,7 +218,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $employers = $this->idMap->getRelatedObjects(
             $person, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $employers );
 
         $this->assertEquals( 1, count( $employers ) );
@@ -228,10 +228,10 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
             current( $this->session->getRelatedObjects( $person, 'RelationTestEmployer' ) )
         );
 
-        
+
         $this->assertEquals(
             $relatedObjectSet,
-            $this->idMap->getRelatedObjectSet( $person, 'foo' )    
+            $this->idMap->getRelatedObjectSet( $person, 'foo' )
         );
     }
 
@@ -239,7 +239,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -257,7 +257,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $employers = $this->idMap->getRelatedObjects(
             $person, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $employers );
 
         $this->assertEquals( 1, count( $employers ) );
@@ -271,7 +271,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
 
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -291,7 +291,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $secEmployers = $this->idMap->getRelatedObjects(
             $secPerson, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $secEmployers );
 
         $this->assertEquals( 1, count( $secEmployers ) );
@@ -314,7 +314,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -332,7 +332,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $employers = $this->idMap->getRelatedObjects(
             $person, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $employers );
 
         $this->assertEquals( 1, count( $employers ) );
@@ -346,7 +346,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
 
         $relations = $this->getOneLevelOneRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -366,7 +366,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $secEmployers = $this->idMap->getRelatedObjects(
             $secPerson, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $secEmployers );
 
         $this->assertEquals( 1, count( $secEmployers ) );
@@ -389,7 +389,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getOneLevelMultiRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -408,7 +408,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $employers = $this->idMap->getRelatedObjects(
             $person, 'RelationTestEmployer'
         );
-        
+
         $this->assertNotNull( $employers );
 
         $this->assertEquals( 1, count( $employers ) );
@@ -421,7 +421,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $addresses = $this->idMap->getRelatedObjects(
             $person, 'RelationTestAddress'
         );
-        
+
         $this->assertNotNull( $addresses );
 
         $this->assertEquals( 3, count( $addresses ) );
@@ -436,7 +436,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getOneLevelMultiRelationRelations();
         $q         = $this->getFindQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -478,7 +478,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
                 $q->bindValue( '%Web%' )
             )
         );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -518,7 +518,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getMultiLevelSingleRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -537,11 +537,11 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $addresses = $this->idMap->getRelatedObjects(
             $person, 'RelationTestAddress'
         );
-        
+
         $this->assertNotNull( $addresses );
 
         $this->assertEquals( 3, count( $addresses ) );
-        
+
         $realAddresses = $this->session->getRelatedObjects( $person, 'RelationTestAddress' );
 
         $this->assertEquals( $realAddresses, $addresses );
@@ -566,7 +566,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getMultiLevelSingleRelationRelations();
         $q         = $this->getFindQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -612,7 +612,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
                 $q->bindValue( 2 )
             )
         );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -652,7 +652,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getMultiLevelMultiRelationRelations();
         $q         = $this->getLoadQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -671,11 +671,11 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         $addresses = $this->idMap->getRelatedObjects(
             $person, 'RelationTestAddress'
         );
-        
+
         $this->assertNotNull( $addresses );
 
         $this->assertEquals( 3, count( $addresses ) );
-        
+
         $realAddresses = $this->session->getRelatedObjects( $person, 'RelationTestAddress' );
 
         $this->assertEquals( $realAddresses, $addresses );
@@ -732,7 +732,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
     {
         $relations = $this->getMultiLevelMultiRelationRelations();
         $q         = $this->getFindQuery( $relations );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 
@@ -799,12 +799,12 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
                 $this->qi( 'habitant_employer' ) . '.' . $this->qi( 'name' ),
                 $q->bindValue( '%Web%' )
             ),
-            $q->expr->lt( 
+            $q->expr->lt(
                 $this->qi( 'birthday' ) . '.' . $this->qi( 'birthday' ),
                 $q->bindValue( 0 )
            )
         );
-        
+
         $stmt = $q->prepare();
         $stmt->execute();
 

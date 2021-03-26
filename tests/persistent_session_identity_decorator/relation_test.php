@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -45,7 +45,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function setup()
@@ -80,7 +80,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
     {
         RelationTestEmployer::cleanup();
     }
-    
+
     // Tests using the actual relation definition
 
     public function testGetRelatedObjectsEmployer1()
@@ -88,7 +88,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         $person = $this->idSession->load( "RelationTestPerson", 1 );
 
         $related1 = $this->idSession->getRelatedObjects( $person, "RelationTestEmployer" );
-        
+
         $this->assertEquals(
             1,
             count( $related1 ),
@@ -120,7 +120,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         $person = $this->idSession->load( "RelationTestPerson", 1 );
 
         $related1 = $this->idSession->getRelatedObjects( $person, "RelationTestEmployer" );
-        
+
         $this->assertEquals(
             1,
             count( $related1 ),
@@ -258,7 +258,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         }
         $this->assertTrue( $found );
     }
-    
+
     public function testRelatedObjectsIdentityFetchedBefore()
     {
         $person1 = $this->idSession->load( 'RelationTestPerson', 1 );
@@ -281,7 +281,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         }
         $this->assertEquals( 2, $found );
     }
-    
+
     public function testRelatedObjectsIdentityFetchedBeforeRefetch()
     {
         $person1 = $this->idSession->load( 'RelationTestPerson', 1 );
@@ -449,7 +449,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-        
+
         $person = $this->idSession->load( 'RelationTestPerson', 1 );
 
         $q = $this->idSession->createRelationFindQuery( $person, 'RelationTestAddress' );
@@ -467,7 +467,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-        
+
         $person = $this->idSession->load( 'RelationTestPerson', 1 );
 
         $q = $this->idSession->createRelationFindQuery(
@@ -492,7 +492,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-        
+
         $person = $this->idSession->load( 'RelationTestPerson', 1 );
 
         $q = $this->idSession->createRelationFindQuery( $person, 'RelationTestAddress' );
@@ -509,7 +509,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-        
+
         $person = $this->idSession->load( 'RelationTestPerson', 1 );
 
         $q = $this->idSession->createRelationFindQuery(
@@ -531,7 +531,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-        
+
         $person = $this->idSession->load( 'RelationTestPerson', 1 );
 
         $q = $this->idSession->createRelationFindQuery(
@@ -565,7 +565,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-        
+
         $person = $this->idSession->load( 'RelationTestPerson', 1 );
 
         $q = $this->idSession->createRelationFindQuery(
@@ -587,7 +587,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-       
+
         $q = $this->idSession->createFindQueryWithRelations(
             'RelationTestPerson',
             array(
@@ -612,7 +612,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         // @TODO: This is currently needed to fix the attribute set in
         // ezcDbHandler. Should be removed as soon as this is fixed!
         $this->session->database->setAttribute( PDO::ATTR_CASE, PDO::CASE_NATURAL );
-       
+
         $q = $this->idSession->createFindQueryWithRelations(
             'RelationTestPerson',
             array(

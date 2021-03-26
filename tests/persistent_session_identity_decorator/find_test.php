@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,7 +37,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     // find
@@ -100,7 +100,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $second = $this->idSession->find( $q, 'PersistentTestObject' );
         $this->assertEquals( 2, count( $second ) );
-        
+
         foreach ( $first as $id => $object )
         {
             $this->assertSame( $first[$id], $second[$id] );
@@ -119,7 +119,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $second = $this->idSession->find( $q, 'PersistentTestObject' );
         $this->assertEquals( 2, count( $second ) );
-        
+
         foreach ( $first as $id => $object )
         {
             $this->assertNotSame( $first[$id], $second[$id] );
@@ -180,7 +180,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr  = $this->idSession->findIterator( $q, 'PersistentTestObject' );
         $secondItr = $this->idSession->findIterator( $q, 'PersistentTestObject' );
-        
+
         $this->assertIteratorsSame(
             $firstItr,
             $secondItr
@@ -196,7 +196,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr  = $this->idSession->findIterator( $q, 'PersistentTestObject' );
         $secondItr = $this->idSession->findIterator( $q, 'PersistentTestObject' );
-        
+
         $this->assertIteratorsNotSame(
             $firstItr,
             $secondItr
@@ -210,7 +210,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr = $this->idSession->findIterator( $q, 'PersistentTestObject' );
         $secondItr = $this->idSession->findIterator( $q, 'PersistentTestObject' );
-        
+
         $this->assertIteratorsSame(
             $firstItr,
             $secondItr
@@ -226,7 +226,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr = $this->idSession->findIterator( $q, 'PersistentTestObject' );
         $secondItr = $this->idSession->findIterator( $q, 'PersistentTestObject' );
-        
+
         $this->assertIteratorsNotSame(
             $firstItr,
             $secondItr
@@ -286,7 +286,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $second = $this->idSession->find( $q, 'PersistentTestObject' );
         $this->assertEquals( 2, count( $second ) );
-        
+
         foreach ( $first as $id => $object )
         {
             $this->assertSame( $first[$id], $second[$id] );
@@ -307,7 +307,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $second = $this->idSession->find( $q, 'PersistentTestObject' );
         $this->assertEquals( 2, count( $second ) );
-        
+
         foreach ( $first as $id => $object )
         {
             $this->assertNotSame( $first[$id], $second[$id] );
@@ -321,7 +321,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr  = $this->idSession->findIterator( $q );
         $secondItr = $this->idSession->findIterator( $q );
-        
+
         $this->assertIteratorsSame(
             $firstItr,
             $secondItr
@@ -337,7 +337,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr  = $this->idSession->findIterator( $q );
         $secondItr = $this->idSession->findIterator( $q );
-        
+
         $this->assertIteratorsNotSame(
             $firstItr,
             $secondItr
@@ -351,7 +351,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr = $this->idSession->findIterator( $q );
         $secondItr = $this->idSession->findIterator( $q );
-        
+
         $this->assertIteratorsSame(
             $firstItr,
             $secondItr
@@ -367,7 +367,7 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
 
         $firstItr = $this->idSession->findIterator( $q );
         $secondItr = $this->idSession->findIterator( $q );
-        
+
         $this->assertIteratorsNotSame(
             $firstItr,
             $secondItr
@@ -446,14 +446,14 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
             $expected->next();
             $actual->next();
         }
-        
+
         $this->assertFalse(
             $expected->valid(),
-            'Expected iterator not finished.' . ( $message !== null ? ' ' . $message : '' ) 
+            'Expected iterator not finished.' . ( $message !== null ? ' ' . $message : '' )
         );
         $this->assertFalse(
             $actual->valid(),
-            'Actual iterator not finished.' . ( $message !== null ? ' ' . $message : '' ) 
+            'Actual iterator not finished.' . ( $message !== null ? ' ' . $message : '' )
         );
     }
 
@@ -478,14 +478,14 @@ class ezcPersistentSessionIdentityDecoratorFindTest extends ezcPersistentSession
             $expected->next();
             $actual->next();
         }
-        
+
         $this->assertFalse(
             $expected->valid(),
-            'Expected iterator not finished.' . ( $message !== null ? ' ' . $message : '' ) 
+            'Expected iterator not finished.' . ( $message !== null ? ' ' . $message : '' )
         );
         $this->assertFalse(
             $actual->valid(),
-            'Actual iterator not finished.' . ( $message !== null ? ' ' . $message : '' ) 
+            'Actual iterator not finished.' . ( $message !== null ? ' ' . $message : '' )
         );
     }
 }

@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,9 +37,9 @@ class ezcPersistentSessionDeleteTest extends ezcPersistentSessionTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
-    
+
     // delete
 
     public function testDeleteValid()
@@ -58,7 +58,7 @@ class ezcPersistentSessionDeleteTest extends ezcPersistentSessionTest
             $this->session->load( 'PersistentTestObject', 5 );
             $this->fail( "Fetching a deleted object did not throw exception." );
         }
-        catch ( ezcPersistentQueryException $e ) 
+        catch ( ezcPersistentQueryException $e )
         {
             $this->assertEquals(
                 "A query failed internally in Persistent Object: No object of class 'PersistentTestObject' with id '5'.",
@@ -86,7 +86,7 @@ class ezcPersistentSessionDeleteTest extends ezcPersistentSessionTest
         }
         catch ( ezcPersistentObjectNotPersistentException $e ) {}
     }
-    
+
     public function testNoTablePrefixingInDeleteQuery()
     {
         $q = $this->session->createDeleteQuery( 'PersistentTestObject' );
@@ -94,7 +94,7 @@ class ezcPersistentSessionDeleteTest extends ezcPersistentSessionTest
             $q->expr->eq( 'integer', $q->bindValue( 50 ) )
         );
         $sql = $q->getQuery();
-        
+
         $this->assertFalse(
             strpos(
                 $sql,
@@ -102,7 +102,7 @@ class ezcPersistentSessionDeleteTest extends ezcPersistentSessionTest
             )
         );
     }
-    
+
     //  deleteFromQuery
 
     public function testDeleteFromQuery()
@@ -120,7 +120,7 @@ class ezcPersistentSessionDeleteTest extends ezcPersistentSessionTest
     {
         $q = $this->session->createDeleteQuery( 'PersistentTestObject' );
         $q->where( $q->expr->neq( 'foobar', 0 ) );
-        
+
         try
         {
             $this->session->deleteFromQuery( $q );

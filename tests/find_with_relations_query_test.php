@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -36,14 +36,14 @@ class ezcPersistentFindWithRelationsQueryTest extends ezcPersistentFindQueryTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function testSetOwnPropertiesFailure()
     {
         parent::testSetOwnPropertiesFailure();
         $findQuery = $this->createFindQuery();
-        
+
         $this->assertSetPropertyFails(
             $findQuery,
             'relations',
@@ -108,7 +108,7 @@ class ezcPersistentFindWithRelationsQueryTest extends ezcPersistentFindQueryTest
         $q->where(
             $q->expr->eq( 'bars_id', $q->bindValue( 23 ) )
         );
-        
+
         $this->assertTrue(
             $q->isRestricted
         );
@@ -122,7 +122,7 @@ class ezcPersistentFindWithRelationsQueryTest extends ezcPersistentFindQueryTest
             $q->expr->gte( 'foo', 42 ),
             $q->expr->eq( 'bars_id', $q->bindValue( 23 ) )
         );
-        
+
         $this->assertTrue(
             $q->isRestricted
         );

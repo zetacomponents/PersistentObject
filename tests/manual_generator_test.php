@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -64,7 +64,7 @@ class ezcPersistentManualGeneratorTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( 'ezcPersistentManualGeneratorTest' );
+        return new \PHPUnit\Framework\TestSuite( 'ezcPersistentManualGeneratorTest' );
     }
 
     // test no id error
@@ -81,7 +81,7 @@ class ezcPersistentManualGeneratorTest extends ezcTestCase
             $this->session->save( $object );
             $this->fail( "Did not get exception when saving with null id." );
         }
-        catch ( ezcPersistentIdentifierGenerationException $e ){} 
+        catch ( ezcPersistentIdentifierGenerationException $e ){}
     }
 
     // test save single

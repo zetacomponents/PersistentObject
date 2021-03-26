@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,10 +37,10 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
-    // Properties 
+    // Properties
 
     public function testDatabaseProperty()
     {
@@ -92,7 +92,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
         }
         $this->fail( "Exception not thrown on get access to non existent property." );
     }
-    
+
     public function testSetAccessFailure()
     {
         $db = ezcDbInstance::get();
@@ -129,7 +129,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
             return;
         }
     }
-    
+
     public function testExportImportDefinitions()
     {
         $classes = array(
@@ -146,7 +146,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
             $def = $this->session->definitionManager->fetchDefinition( $class );
 
             $file = $dir . "/$class.php";
-            
+
 
             file_put_contents( $file, "<?php\nreturn " . var_export( $def, true ) . ";\n?>" );
             $deserialized = require $file;
@@ -165,7 +165,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
     public function testInvalidStateException()
     {
         $obj = new PersistentTestObjectInvalidState();
-        
+
         $obj->state = null;
         try
         {
@@ -173,7 +173,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
             $this->fail( 'Exception not thrown with state null.' );
         }
         catch( ezcPersistentInvalidObjectStateException $e ) {}
-        
+
         $obj->state = 23;
         try
         {
@@ -181,7 +181,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
             $this->fail( 'Exception not thrown with state integer.' );
         }
         catch( ezcPersistentInvalidObjectStateException $e ) {}
-        
+
         $obj->state = new stdClass();
         try
         {
@@ -189,7 +189,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
             $this->fail( 'Exception not thrown with state object.' );
         }
         catch( ezcPersistentInvalidObjectStateException $e ) {}
-        
+
         $obj->state = 'foo';
         try
         {
@@ -197,7 +197,7 @@ class ezcPersistentSessionMiscTest extends ezcPersistentSessionTest
             $this->fail( 'Exception not thrown with state string.' );
         }
         catch( ezcPersistentInvalidObjectStateException $e ) {}
-        
+
         $obj->state = true;
         try
         {

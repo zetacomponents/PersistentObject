@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -36,7 +36,7 @@ class ezcPersistentFindQueryTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function setUp()
@@ -150,7 +150,7 @@ class ezcPersistentFindQueryTest extends ezcTestCase
         $q = new ezcQuerySelect( $this->db );
         $cn = 'myCustomClassName';
         $findQuery = new ezcPersistentFindQuery( $q, $cn );
-        
+
         $this->assertEquals(
             'myCustomClassName',
             $findQuery->className
@@ -166,7 +166,7 @@ class ezcPersistentFindQueryTest extends ezcTestCase
         $q = new ezcQuerySelect( $this->db );
         $cn = 'myCustomClassName';
         $findQuery = new ezcPersistentFindQuery( $q, $cn );
-        
+
         $this->assertEquals(
             new ezcQueryExpressionSqlite( $this->db ),
             $findQuery->query->expr
@@ -234,14 +234,14 @@ class ezcPersistentFindQueryTest extends ezcTestCase
         $q->expects( $this->never() )->method( 'select' );
 
         $cn = 'myCustomClassName';
-        
+
         $findQuery = new ezcPersistentFindQuery( $q, $cn );
-        
+
         $this->assertEquals(
             23,
             $findQuery->reset()
         );
-        
+
         $this->assertNull(
             $findQuery->alias( 'someName', 'someAlias' )
         );

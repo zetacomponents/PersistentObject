@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -41,7 +41,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( "ezcPersistentManyToOneRelationTest" );
+        return new \PHPUnit\Framework\TestSuite( "ezcPersistentManyToOneRelationTest" );
     }
 
     public function setup()
@@ -66,7 +66,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
     {
         RelationTestEmployer::cleanup();
     }
-    
+
     // Tests of the relation definition class
 
     public function testGetAccessSuccess()
@@ -93,7 +93,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
         }
         $this->fail( "Exception not thrown on access of non existent property." );
     }
-    
+
     public function testIssetAccessSuccess()
     {
         $relation = new ezcPersistentManyToOneRelation( "PO_persons", "PO_addresses" );
@@ -153,7 +153,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
         catch ( ezcBaseValueException $e )
         {
         }
-        
+
         try
         {
             $relation->columnMap = array();
@@ -206,7 +206,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
     {
         $person = $this->session->load( "RelationTestPerson", 1 );
         $res = array (
-        2 => 
+        2 =>
             RelationTestEmployer::__set_state(array(
                 'id' => '2',
                 'name' => 'Oldschool Web 1.x company',

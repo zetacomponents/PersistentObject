@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -43,7 +43,7 @@ class ezcPersistentObjectPropertyTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( 'ezcPersistentObjectPropertyTest' );
+        return new \PHPUnit\Framework\TestSuite( 'ezcPersistentObjectPropertyTest' );
     }
 
     public function testConstructureSuccess()
@@ -61,8 +61,8 @@ class ezcPersistentObjectPropertyTest extends ezcTestCase
             'properties',
             $property
         );
-        
-        
+
+
         $property = new ezcPersistentObjectProperty(
             'column',
             'property',
@@ -199,7 +199,7 @@ class ezcPersistentObjectPropertyTest extends ezcTestCase
         }
         $this->fail( 'Exception not thrown on get access to invalid property $foo.' );
     }
-    
+
     public function testSetAccessSuccess()
     {
         $property = new ezcPersistentObjectProperty();
@@ -229,7 +229,7 @@ class ezcPersistentObjectPropertyTest extends ezcTestCase
             PDO::PARAM_LOB,
             $property->databaseType
         );
-        
+
         $property->converter   = null;
         $this->assertNull(
             $property->converter
@@ -245,7 +245,7 @@ class ezcPersistentObjectPropertyTest extends ezcTestCase
             $property->resultColumnName
         );
     }
-    
+
     public function testSetAccessFailure()
     {
         $property = new ezcPersistentObjectProperty();

@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -43,7 +43,7 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( 'ezcPersistentObjectDefinitionTest' );
+        return new \PHPUnit\Framework\TestSuite( 'ezcPersistentObjectDefinitionTest' );
     }
 
     public function testConstructureSuccess()
@@ -61,7 +61,7 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
             'propertyArray',
             $definition
         );
-        
+
         $definition = new ezcPersistentObjectDefinition(
             'table',
             'class',
@@ -69,7 +69,7 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
             array(),
             new ezcPersistentObjectIdProperty()
         );
-        
+
         $res = array(
             'table'      => 'table',
             'class'      => 'class',
@@ -148,7 +148,7 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
         }
         $this->fail( 'Exception not thrown on get access to invalid property $foo.' );
     }
-    
+
     public function testSetAccessSuccess()
     {
         $definition = new ezcPersistentObjectDefinition();
@@ -184,7 +184,7 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
             $definition->relations
         );
     }
-    
+
     public function testSetAccessFailure()
     {
         $definition = new ezcPersistentObjectDefinition();
@@ -276,37 +276,37 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
         $res = ezcPersistentObjectDefinition::__set_state(array(
            'table' => 'test table',
            'class' => 'test class',
-           'idProperty' => 
+           'idProperty' =>
           ezcPersistentObjectIdProperty::__set_state(array(
              'columnName' => 'test column',
              'propertyName' => 'test property',
              'visibility' => NULL,
-             'generator' => 
+             'generator' =>
             ezcPersistentGeneratorDefinition::__set_state(array(
                'class' => 'test class',
-               'params' => 
+               'params' =>
               array (
                 'param' => 123,
               ),
             )),
           )),
-           'properties' => 
+           'properties' =>
           array (
-            'test' => 
+            'test' =>
             ezcPersistentObjectProperty::__set_state(array(
                'columnName' => 'test column',
                'propertyName' => 'test property',
                'propertyType' => 2,
             )),
           ),
-           'columns' => 
+           'columns' =>
           array (
           ),
-           'relations' => 
+           'relations' =>
           array (
           ),
         ));
-        
+
         $this->assertEquals( $res, $def, "ezcPersistentObjectDefinition not deserialized correctly." );
     }
 
@@ -317,7 +317,7 @@ class ezcPersistentObjectDefinitionTest extends ezcTestCase
     {
         // Load def without def manager
         $def = require dirname( __FILE__ ) . '/../data/persistenttestobject.php';
-        
+
         try
         {
             ezcPersistentStateTransformer::rowToStateArray( array(), $def );

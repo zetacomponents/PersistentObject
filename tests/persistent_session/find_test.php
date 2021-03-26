@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,7 +37,7 @@ class ezcPersistentSessionFindTest extends ezcPersistentSessionTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     // find
@@ -79,7 +79,7 @@ class ezcPersistentSessionFindTest extends ezcPersistentSessionTest
         $this->assertEquals( 357.02, (float)$objects[4]->decimal );
         $this->assertEquals( 'Home of the lederhosen!.', $objects[4]->text );
     }
-    
+
     public function testTablePrefixingInFindQuery()
     {
         $q = $this->session->createFindQuery( 'PersistentTestObject' );
@@ -87,7 +87,7 @@ class ezcPersistentSessionFindTest extends ezcPersistentSessionTest
             $q->expr->eq( 'integer', $q->bindValue( 50 ) )
         );
         $sql = $q->getQuery();
-        
+
         $this->assertNotEquals(
             false,
             strpos(

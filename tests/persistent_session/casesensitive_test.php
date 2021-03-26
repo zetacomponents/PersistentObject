@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -86,7 +86,7 @@ class ezcPersistentSessionCasesensitiveTest extends ezcTestCase
             $this->session->load( 'PersistentTestObjectCasesensitive', 5 );
             $this->fail( "Fetching a deleted object did not throw exception." );
         }
-        catch ( ezcPersistentQueryException $e ) 
+        catch ( ezcPersistentQueryException $e )
         {
             $this->assertEquals(
                 "A query failed internally in Persistent Object: No object of class 'PersistentTestObjectCasesensitive' with id '5'.",
@@ -94,11 +94,11 @@ class ezcPersistentSessionCasesensitiveTest extends ezcTestCase
             );
         }
     }
-    
+
     public function testUpdate()
     {
         $object = $this->session->load( 'PersistentTestObjectCasesensitive', 1 );
-        
+
         $this->assertEquals( 'PersistentTestObjectCasesensitive', get_class( $object ) );
 
         $object->varChar = 'Finland';
@@ -141,7 +141,7 @@ class ezcPersistentSessionCasesensitiveTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 }
 

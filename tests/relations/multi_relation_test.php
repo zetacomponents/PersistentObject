@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -40,7 +40,7 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function setup()
@@ -74,7 +74,7 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
             $rootMother->name,
             'MultiRelationTestPerson with ID 1 not loaded correctly.'
         );
-        
+
         $rootFather = $this->session->load( 'MultiRelationTestPerson', 2 );
         $this->assertEquals(
             'Root father without parents.',
@@ -87,11 +87,11 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
     {
         $q = $this->session->createFindQuery( 'MultiRelationTestPerson' );
         $q->where(
-            $q->expr->gt( 
+            $q->expr->gt(
                 $this->session->database->quoteIdentifier( 'id' ),
                 $q->bindValue( 2 )
             ),
-            $q->expr->lt( 
+            $q->expr->lt(
                 $this->session->database->quoteIdentifier( 'id' ),
                 $q->bindValue( 5 )
             )
@@ -247,24 +247,24 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
             'First child fetched incorrect.'
         );
     }
-    
+
     public function testGetRelatedObjectSuccessChildMother()
     {
         $child   = $this->session->load( 'MultiRelationTestPerson', 3 );
         $mother = $this->session->getRelatedObject( $child, 'MultiRelationTestPerson', 'mother' );
-        
+
         $this->assertEquals(
             1,
             $mother->id,
             'Mother fetched incorrectly for child 3'
         );
     }
-    
+
     public function testGetRelatedObjectSuccessChildFather()
     {
         $child  = $this->session->load( 'MultiRelationTestPerson', 4 );
         $father = $this->session->getRelatedObject( $child, 'MultiRelationTestPerson', 'father' );
-        
+
         $this->assertEquals(
             2,
             $father->id,
@@ -311,7 +311,7 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
         $mother = $this->session->load( 'MultiRelationTestPerson', 1 );
 
         $this->session->addRelatedObject( $mother, $newChild, 'mothers_children' );
-        
+
         $this->assertEquals(
             $mother->id,
             $newChild->mother,
@@ -356,7 +356,7 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
             'Incorrect perso ID in relation record.'
         );
     }
-    
+
     public function testRemoveObjectsFailureWithoutRelationName()
     {
         $mother   = $this->session->load( 'MultiRelationTestPerson', 1 );
@@ -409,12 +409,12 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
             );
         }
     }
-    
+
     public function testRemoveRelatedObjectFailureChildMother()
     {
         $child   = $this->session->load( 'MultiRelationTestPerson', 3 );
         $mother = $this->session->getRelatedObject( $child, 'MultiRelationTestPerson', 'mother' );
-        
+
         try
         {
             $this->session->removeRelatedObject( $child, $mother, 'mother' );
@@ -422,12 +422,12 @@ class ezcPersistentMultiRelationTest extends ezcTestCase
         }
         catch ( ezcPersistentRelationOperationNotSupportedException $e ) {}
     }
-    
+
     public function testRemoveRelatedObjectFailureChildFather()
     {
         $child  = $this->session->load( 'MultiRelationTestPerson', 4 );
         $father = $this->session->getRelatedObject( $child, 'MultiRelationTestPerson', 'father' );
-        
+
         try
         {
             $this->session->removeRelatedObject( $child, $father, 'father' );

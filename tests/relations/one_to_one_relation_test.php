@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -42,7 +42,7 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( "ezcPersistentOneToOneRelationTest" );
+        return new \PHPUnit\Framework\TestSuite( "ezcPersistentOneToOneRelationTest" );
     }
 
     public function setup()
@@ -67,7 +67,7 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
     {
         RelationTestBirthday::cleanup();
     }
-    
+
     // Tests of the relation definition class
 
     public function testGetAccessSuccess()
@@ -94,7 +94,7 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
         }
         $this->fail( "Exception not thrown on access of non existent property." );
     }
-    
+
     public function testIssetAccessSuccess()
     {
         $relation = new ezcPersistentOneToOneRelation( "PO_persons", "PO_addresses" );
@@ -154,7 +154,7 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
         catch ( ezcBaseValueException $e )
         {
         }
-        
+
         try
         {
             $relation->columnMap = array();
@@ -191,14 +191,14 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
         {
         }
     }
-    
+
     // Tests using the actual relation definition
 
     public function testGetRelatedBirthdaysFromPerson1()
     {
         $person = $this->session->load( "RelationTestPerson", 1 );
         $res = array (
-            1 => 
+            1 =>
             RelationTestBirthday::__set_state(array(
                 'person' => '1',
                 'birthday' => '327535201',
@@ -210,12 +210,12 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
             "Related RelationTestPerson objects not fetched correctly."
         );
     }
-    
+
     public function testGetRelatedBirthdaysFromPerson2()
     {
         $person = $this->session->load( "RelationTestPerson", 2 );
         $res = array(
-            2 => 
+            2 =>
             RelationTestBirthday::__set_state(array(
                 'person' => '2',
                 'birthday' => '-138243599',
@@ -227,7 +227,7 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
             "Related RelationTestPerson objects not fetched correctly."
         );
     }
-    
+
     public function testGetRelatedBirthdayFromPerson1Success()
     {
         $person = $this->session->load( "RelationTestPerson", 1 );
@@ -257,19 +257,19 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
             "Related RelationTestPerson objects not fetched correctly."
         );
     }
- 
+
     public function testAddRelatedBirthdayToPerson3Success()
     {
         $person = $this->session->load( "RelationTestPerson", 3 );
-        
+
         $birthday = new RelationTestBirthday();
         $birthday->setState( array(
             "birthday"  => 1161019786,
         ) );
 
         $this->session->addRelatedObject( $person, $birthday );
-        
-        $res = RelationTestBirthday::__set_state( array( 
+
+        $res = RelationTestBirthday::__set_state( array(
             'person' => '3',
             'birthday' => 1161019786,
         ));
@@ -285,18 +285,18 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
     public function testAddRelatedBirthdayToPerson3SaveSuccess()
     {
         $person = $this->session->load( "RelationTestPerson", 3 );
-        
+
         $birthday = new RelationTestBirthday();
         $birthday->setState( array(
             "birthday"  => 1161019786,
         ) );
 
         $this->session->addRelatedObject( $person, $birthday );
-        
+
         $this->session->save( $birthday );
 
-        
-        $res = RelationTestBirthday::__set_state( array( 
+
+        $res = RelationTestBirthday::__set_state( array(
             'person' => '3',
             'birthday' => 1161019786,
         ));
@@ -307,11 +307,11 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
             "Relation not established correctly"
         );
     }
- 
+
     public function testAddRelatedBirthdayToPerson3UpdateFailure()
     {
         $person = $this->session->load( "RelationTestPerson", 3 );
-        
+
         $birthday = new RelationTestBirthday();
         $birthday->setState( array(
             "birthday"  => 1161019786,
@@ -337,7 +337,7 @@ class ezcPersistentOneToOneRelationTest extends ezcTestCase
         }
         $this->fail( "Birthday object updated although not in database, yet!" );
     }
-    
+
     public function testRemoveRelatedBirthdayFromPerson1Success()
     {
         $person   = $this->session->load( "RelationTestPerson", 1 );

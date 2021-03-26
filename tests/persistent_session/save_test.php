@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,11 +37,11 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     // update
-    
+
     public function testUpdateValid()
     {
         $object = $this->session->loadIfExists( 'PersistentTestObject', 1 );
@@ -67,7 +67,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
             $this->session->update( new Exception() );
             $this->fail( "Update of non-persistent object did not throw exception" );
         }
-        catch ( ezcPersistentObjectException $e ) 
+        catch ( ezcPersistentObjectException $e )
         {
         }
     }
@@ -96,7 +96,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
 
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -116,10 +116,10 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
         $arr[5]->integer = new DateTime( '@327535200' );
 
         $this->session->update( $arr[5] );
-        
+
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -170,13 +170,13 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
         $obj->text    = 'Foo Bar Baz';
 
         $this->session->save( $obj );
-        
+
         $this->assertSame(
             $date,
             $obj->integer
         );
     }
-    
+
     public function testNoConversionOnUpdate()
     {
         $obj = new PersistentTestObjectConverter();
@@ -190,7 +190,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
 
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -202,7 +202,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
             count( $arr )
         );
         $this->assertTrue( isset( $arr[5] ) );
-        
+
         $this->assertInstanceOf(
             'DateTime',
             $arr[5]->integer
@@ -216,10 +216,10 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
         $arr[5]->integer = null;
 
         $this->session->update( $arr[5] );
-        
+
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -314,7 +314,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
 
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -352,7 +352,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
 
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -386,7 +386,7 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
 
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Foo Bar' )
             )
@@ -467,15 +467,15 @@ class ezcPersistentSessionSaveTest extends ezcPersistentSessionTest
             $this->assertEquals( 50, (int)$object->integer );
         }
     }
-    
+
     // misc
-     
+
     public function testNoTablePrefixingInUpdateQuery()
     {
         $q = $this->session->createUpdateQuery( 'PersistentTestObject' );
         $q->set( 'integer', 50 );
         $sql = $q->getQuery();
-        
+
         $this->assertFalse(
             strpos(
                 $sql,

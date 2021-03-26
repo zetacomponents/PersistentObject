@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -80,7 +80,7 @@ class ezcPersistentCodeManagerTest extends ezcTestCase
     public function testNoNamespace()
     {
         $manager = new ezcPersistentCodeManager( dirname( __FILE__ ) . '/../data/namespaces/' );
-        
+
         $def = $manager->fetchDefinition( 'NoNamespace' );
 
         $this->assertEquals( 'NoNamespace', $def->class );
@@ -90,7 +90,7 @@ class ezcPersistentCodeManagerTest extends ezcTestCase
     public function testRootNamespace()
     {
         $manager = new ezcPersistentCodeManager( dirname( __FILE__ ) . '/../data/namespaces/' );
-        
+
         $def = $manager->fetchDefinition( '\\RootNamespace' );
 
         $this->assertEquals( '\\RootNamespace', $def->class );
@@ -100,7 +100,7 @@ class ezcPersistentCodeManagerTest extends ezcTestCase
     public function testSingleNamespace()
     {
         $manager = new ezcPersistentCodeManager( dirname( __FILE__ ) . '/../data/namespaces/' );
-        
+
         $def = $manager->fetchDefinition( '\\foo\\InFooNamespace' );
 
         $this->assertEquals( '\\foo\\InFooNamespace', $def->class );
@@ -110,7 +110,7 @@ class ezcPersistentCodeManagerTest extends ezcTestCase
     public function testMultipleNamespace()
     {
         $manager = new ezcPersistentCodeManager( dirname( __FILE__ ) . '/../data/namespaces/' );
-        
+
         $def = $manager->fetchDefinition( '\\foo\\Bar\\InBarNamespace' );
 
         $this->assertEquals( '\\foo\\Bar\\InBarNamespace', $def->class );
@@ -119,7 +119,7 @@ class ezcPersistentCodeManagerTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( 'ezcPersistentCodeManagerTest' );
+        return new \PHPUnit\Framework\TestSuite( 'ezcPersistentCodeManagerTest' );
     }
 }
 

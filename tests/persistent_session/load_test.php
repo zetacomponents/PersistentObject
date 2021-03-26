@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -37,7 +37,7 @@ class ezcPersistentSessionLoadTest extends ezcPersistentSessionTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     // loadIfExists
@@ -99,7 +99,7 @@ class ezcPersistentSessionLoadTest extends ezcPersistentSessionTest
     {
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'Germany' )
             )
@@ -140,7 +140,7 @@ class ezcPersistentSessionLoadTest extends ezcPersistentSessionTest
 
         $q = $this->session->createFindQuery( 'PersistentTestObjectConverter' );
         $q->where(
-            $q->expr->eq( 
+            $q->expr->eq(
                 $this->session->database->quoteIdentifier( 'type_varchar' ),
                 $q->bindValue( 'foo' )
             )
@@ -158,7 +158,7 @@ class ezcPersistentSessionLoadTest extends ezcPersistentSessionTest
     }
 
     // loadIntoObject
-    
+
     public function testLoadIntoObjectValid()
     {
         $object = new PersistentTestObject();
@@ -186,7 +186,7 @@ class ezcPersistentSessionLoadTest extends ezcPersistentSessionTest
         }
         catch ( ezcPersistentDefinitionNotFoundException $e )
         {
-            return;    
+            return;
         }
     }
 

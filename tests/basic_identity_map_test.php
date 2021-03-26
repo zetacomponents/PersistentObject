@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -41,7 +41,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function setUp()
@@ -77,7 +77,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         );
     }
 
-    /* 
+    /*
      * getIdentity()
      */
 
@@ -86,7 +86,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $this->assertNull(
             $idMap->getIdentity( 'RelationTestPerson', 23 )
         );
@@ -97,12 +97,12 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
         $idMap->setIdentity( $obj );
-        
+
         $this->assertSame(
             $obj,
             $idMap->getIdentity( 'RelationTestPerson', 23 )
@@ -114,10 +114,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $objA     = new RelationTestPerson();
         $objA->id = 23;
-        
+
         $objB     = new RelationTestPerson();
         $objB->id = 42;
 
@@ -140,10 +140,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $objA     = new RelationTestPerson();
         $objA->id = 23;
-        
+
         $objB     = new RelationTestAddress();
         $objB->id = 42;
 
@@ -170,7 +170,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -194,7 +194,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $objA     = new RelationTestPerson();
         $objA->id = 23;
 
@@ -238,7 +238,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $objA     = new RelationTestPerson();
         $objA->id = 23;
 
@@ -301,7 +301,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -339,10 +339,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $objA     = new RelationTestPerson();
         $objA->id = 23;
-        
+
         $objB     = new RelationTestPerson();
         $objB->id = 23;
 
@@ -384,7 +384,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -419,10 +419,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -442,7 +442,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $this->assertTrue( isset( $identities['RelationTestAddress'][42]->references ) );
         $this->assertTrue( isset( $identities['RelationTestAddress'][65]->references ) );
-        
+
         $this->assertEquals(
             array(
                 'RelationTestPerson' => array(
@@ -487,7 +487,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $this->assertFalse( isset( $identities['RelationTestAddress'][42]->references ) );
         $this->assertTrue( isset( $identities['RelationTestAddress'][65]->references ) );
-        
+
         $this->assertEquals(
             array(
                 'RelationTestPerson' => array(
@@ -524,10 +524,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = new ArrayObject();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -586,10 +586,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new MultiRelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = new ArrayObject();
         $relatedObjects[42] = new MultiRelationTestPerson();
         $relatedObjects[42]->id = 42;
@@ -651,10 +651,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -714,10 +714,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -781,10 +781,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -839,10 +839,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -899,10 +899,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -963,10 +963,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $oldRelatedObjects = array();
         $oldRelatedObjects[42] = new RelationTestAddress();
         $oldRelatedObjects[42]->id = 42;
@@ -1007,10 +1007,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -1078,13 +1078,13 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
         $relObj     = new RelationTestAddress();
         $relObj->id = 42;
-        
+
         try
         {
             $idMap->setRelatedObjects( $obj, array( $relObj ), 'RelationTestAddress' );
@@ -1098,13 +1098,13 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
         $relObj     = new RelationTestAddress();
         $relObj->id = 42;
-        
+
         try
         {
             $idMap->setRelatedObjectSet( $obj, array( $relObj ), 'named_set' );
@@ -1122,10 +1122,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -1184,7 +1184,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         $idMap->setIdentity( $newRelatedObject );
         $idMap->addRelatedObject( $obj, $newRelatedObject );
 
@@ -1250,10 +1250,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new MultiRelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new MultiRelationTestPerson();
         $relatedObjects[42]->id = 42;
@@ -1315,7 +1315,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $newRelatedObject     = new MultiRelationTestPerson();
         $newRelatedObject->id = 3;
-        
+
         $idMap->setIdentity( $newRelatedObject );
         $idMap->addRelatedObject( $obj, $newRelatedObject, 'mothers_children' );
 
@@ -1379,10 +1379,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $idMap->setIdentity( $obj );
 
         $this->assertAttributeEquals(
@@ -1399,7 +1399,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         $idMap->setIdentity( $newRelatedObject );
 
         $idMap->addRelatedObject( $obj, $newRelatedObject );
@@ -1425,10 +1425,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -1489,7 +1489,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         $idMap->setIdentity( $newRelatedObject );
         $idMap->addRelatedObject( $obj, $newRelatedObject );
 
@@ -1555,13 +1555,13 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         try
         {
             $idMap->addRelatedObject( $obj, $newRelatedObject );
@@ -1575,15 +1575,15 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $idMap->setIdentity( $obj );
 
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         try
         {
             $idMap->addRelatedObject( $obj, $newRelatedObject );
@@ -1609,15 +1609,15 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $idMap->setIdentity( $obj );
 
         $newRelatedObject     = new stdClass();
         $newRelatedObject->id = 3;
-        
+
         try
         {
             $idMap->addRelatedObject( $obj, $newRelatedObject );
@@ -1643,10 +1643,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -1661,7 +1661,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         $idMap->setIdentity( $newRelatedObject );
         $idMap->addRelatedObject( $obj, $newRelatedObject );
 
@@ -1794,10 +1794,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -1809,7 +1809,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap->setIdentity( $relatedObjects[65] );
 
         $idMap->setRelatedObjects( $obj, $relatedObjects, 'RelationTestAddress' );
-        
+
         $identities = $this->readAttribute(
             $idMap, 'identities'
         );
@@ -1855,7 +1855,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         );
 
         $idMap->removeRelatedObject( $obj, $relatedObjects[42] );
-        
+
         $identities = $this->readAttribute(
             $idMap, 'identities'
         );
@@ -1910,10 +1910,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new MultiRelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new MultiRelationTestPerson();
         $relatedObjects[42]->id = 42;
@@ -1930,7 +1930,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
             'MultiRelationTestPerson',
             'fathers_children'
         );
-        
+
         $identities = $this->readAttribute(
             $idMap, 'identities'
         );
@@ -1974,7 +1974,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         );
 
         $idMap->removeRelatedObject( $obj, $relatedObjects[42], 'fathers_children' );
-        
+
         $identities = $this->readAttribute(
             $idMap, 'identities'
         );
@@ -2027,10 +2027,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new RelationTestAddress();
         $relatedObjects[42]->id = 42;
@@ -2050,7 +2050,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $this->assertTrue( isset( $identities['RelationTestAddress'][42]->references ) );
         $this->assertTrue( isset( $identities['RelationTestAddress'][65]->references ) );
-        
+
         $this->assertEquals(
             array(
                 'RelationTestPerson' => array(
@@ -2150,10 +2150,10 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new MultiRelationTestPerson();
         $obj->id = 23;
-        
+
         $relatedObjects = array();
         $relatedObjects[42] = new MultiRelationTestPerson();
         $relatedObjects[42]->id = 42;
@@ -2173,7 +2173,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
 
         $this->assertTrue( isset( $identities['MultiRelationTestPerson'][42]->references ) );
         $this->assertTrue( isset( $identities['MultiRelationTestPerson'][65]->references ) );
-        
+
         $this->assertEquals(
             array(
                 'MultiRelationTestPerson' => array(
@@ -2267,12 +2267,12 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
         $idMap->setIdentity( $obj );
-        
+
         $this->assertAttributeEquals(
             array(
                 'RelationTestPerson' => array(
@@ -2284,7 +2284,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
             'identities',
             $idMap
         );
-        
+
         $relatedObject = new RelationTestAddress();
         $relatedObject->id = 42;
 
@@ -2308,13 +2308,13 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
-        
+
         $newRelatedObject     = new RelationTestAddress();
         $newRelatedObject->id = 3;
-        
+
         try
         {
             $idMap->removeRelatedObject( $obj, $newRelatedObject );
@@ -2332,7 +2332,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2359,7 +2359,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new MultiRelationTestPerson();
         $obj->id = 23;
 
@@ -2402,7 +2402,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2429,7 +2429,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2446,7 +2446,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2463,7 +2463,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2478,7 +2478,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2493,7 +2493,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2510,7 +2510,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2527,7 +2527,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 
@@ -2581,7 +2581,7 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         $idMap = new ezcPersistentBasicIdentityMap(
             $this->definitionManager
         );
-        
+
         $obj     = new RelationTestPerson();
         $obj->id = 23;
 

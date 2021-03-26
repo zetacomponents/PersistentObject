@@ -8,9 +8,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -36,7 +36,7 @@ class ezcPersistentRelationFindQueryTest extends ezcPersistentFindQueryTest
 {
     public static function suite()
     {
-        return new PHPUnit_Framework_TestSuite( __CLASS__ );
+        return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
     public function testRelationSetNameInCtor()
@@ -66,7 +66,7 @@ class ezcPersistentRelationFindQueryTest extends ezcPersistentFindQueryTest
     public function testSetOwnPropertiesSuccess()
     {
         $findQuery = $this->createFindQuery();
-        
+
         $this->assertSetProperty( $findQuery, 'relationSetName', array( 'mySetName' ) );
         $this->assertSetProperty( $findQuery, 'relationSource', array( new stdClass() ) );
     }
@@ -75,7 +75,7 @@ class ezcPersistentRelationFindQueryTest extends ezcPersistentFindQueryTest
     {
         parent::testSetOwnPropertiesFailure();
         $findQuery = $this->createFindQuery();
-        
+
         $this->assertSetPropertyFails(
             $findQuery,
             'relationSetName',
