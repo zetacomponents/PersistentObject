@@ -1,3 +1,13 @@
+1.8.2 - Thursday 20 February 2026
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentSaveHandler::saveInternal().
+- Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentObjectIdProperty::__construct().
+- Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentObjectDefinition::__construct().
+- Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentSessionIdentityDecorator::__construct().
+- Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentIdentity::__construct().
+
+
 1.8.1 - Friday 26 March 2021
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

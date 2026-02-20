@@ -82,7 +82,7 @@ class ezcPersistentObjectDefinition
                                  $class = '',
                                  array $properties = array(),
                                  array $relations = array(),
-                                 ezcPersistentObjectIdProperty $idProperty = null )
+                                 ?ezcPersistentObjectIdProperty $idProperty = null )
     {
         $this->table      = $table;
         $this->class      = $class;
