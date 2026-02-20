@@ -295,7 +295,7 @@ class ezcPersistentSaveHandler extends ezcPersistentSessionHandler
     private function saveInternal(
         $object,
         $doPersistenceCheck = true,
-        ezcPersistentIdentifierGenerator $idGenerator = null 
+        ?ezcPersistentIdentifierGenerator $idGenerator = null
     )
     {
         $class = get_class( $object );

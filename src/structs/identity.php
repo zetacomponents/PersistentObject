@@ -122,7 +122,7 @@ class ezcPersistentIdentity extends ezcBaseStruct
         $object = null,
         array $relatedObjects = array(),
         array $namedRelatedObjectSets = array(),
-        SplObjectStorage $references = null
+        ?SplObjectStorage $references = null
     )
     {
         $this->object                 = $object;
