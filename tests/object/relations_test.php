@@ -33,11 +33,11 @@
  */
 class ezcPersistentObjectRelationsTest extends ezcTestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
     }
 

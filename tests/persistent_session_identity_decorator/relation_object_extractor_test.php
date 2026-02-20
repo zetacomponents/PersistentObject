@@ -48,7 +48,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
-    public function setup()
+    public function setUp(): void
     {
         parent::setup();
 
@@ -72,7 +72,7 @@ class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends e
         );
     }
 
-    public function teardown()
+    public function tearDown(): void
     {
         RelationTestEmployer::cleanup( $this->db );
     }

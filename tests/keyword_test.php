@@ -42,7 +42,7 @@ class ezcPersistentKeywordTest extends ezcTestCase
     private $session = null;
     private $hasTables = false;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         try
         {
@@ -59,7 +59,7 @@ class ezcPersistentKeywordTest extends ezcTestCase
                                                    new ezcPersistentCodeManager( dirname( __FILE__ ) . "/data/keywordtest" ) );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Table::cleanup();
     }

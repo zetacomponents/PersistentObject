@@ -37,7 +37,7 @@ class ezcPersistentSessionCasesensitiveTest extends ezcTestCase
 {
     protected $session = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         try
         {
@@ -134,7 +134,7 @@ class ezcPersistentSessionCasesensitiveTest extends ezcTestCase
         $this->assertEquals( 'Finland has Nokia!', $object2->text );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         PersistentTestObjectCasesensitive::cleanup();
     }

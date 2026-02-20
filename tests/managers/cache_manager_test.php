@@ -35,7 +35,7 @@ class ezcPersistentCacheManagerTest extends ezcTestCase
 {
     private $manager = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->manager = new ezcPersistentCacheManager( new ezcPersistentCodeManager( dirname( __FILE__ ) . "/data/" ) );
     }

@@ -39,7 +39,7 @@ class ezcPersistentSessionIdentityDecoratorTest extends ezcPersistentSessionTest
 
     protected $idSession;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

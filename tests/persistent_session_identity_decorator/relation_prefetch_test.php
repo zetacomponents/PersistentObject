@@ -44,7 +44,7 @@ class ezcPersistentSessionIdentityDecoratorRelationPrefetchTest extends ezcTestC
 
     protected $db;
 
-    public function setup()
+    public function setUp(): void
     {
         $this->defManager = new ezcPersistentCodeManager(
             dirname( __FILE__ ) . '/../data/'
