@@ -110,6 +110,7 @@ class ezcPersistentIdentityFindIterator extends ezcPersistentFindIterator
      *
      * @return object
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         $object = parent::next();
