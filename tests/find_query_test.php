@@ -217,14 +217,10 @@ class ezcPersistentFindQueryTest extends ezcTestCase
 
     public function testDelegateSuccess()
     {
-        $q = $this->getMock(
-            'ezcQuerySelect',
-            array( 'reset', 'alias', 'select' ),
-            array(),
-            '',
-            false,
-            false
-        );
+        $q = $this->getMockBuilder( 'ezcQuerySelect' )
+            ->disableOriginalConstructor()
+            ->onlyMethods( array( 'reset', 'alias', 'select' ) )
+            ->getMock();
         $q->expects( $this->once() )
            ->method( 'reset' )
            ->will( $this->returnValue( 23 ) );

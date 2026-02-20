@@ -10,6 +10,9 @@
 - Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectProperties::offsetSet(), exchangeArray(), setFlags() and append().
 - Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectColumns::offsetSet(), exchangeArray(), setFlags() and append().
 - Fixed: PHP 8.1 deprecation of missing return types in PHPUnit setUp() and tearDown() methods across all test classes.
+- Fixed: PHPUnit deprecation of getMock() replaced with getMockBuilder() in test classes.
+- Fixed: PHPUnit deprecation of readAttribute() replaced with a custom readPrivateAttribute() helper using Reflection.
+- Fixed: PHPUnit strict type assertion corrections (string to int) in ezcPersistentDatabaseTypeTest.
 
 
 1.8.1 - Friday 26 March 2021
