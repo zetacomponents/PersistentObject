@@ -135,15 +135,26 @@ class ezcPersistentSessionIdentityDecoratorRelationQueryCreatorTest extends ezcP
     protected function assertAliasesEqual( $expected, $actual )
     {
         $this->assertEquals(
-            $this->readAttribute(
-                $expected->query,
-                'aliases'
-            ),
-            $this->readAttribute(
-                $actual->query,
-                'aliases'
-            ),
+            $this->readPrivateAttribute( $expected->query, 'aliases' ),
+            $this->readPrivateAttribute( $actual->query, 'aliases' ),
             'Query aliases did not match.'
+        );
+    }
+
+    protected function readPrivateAttribute( $object, $attribute )
+    {
+        $class = new ReflectionClass( $object );
+        while ( $class !== false )
+        {
+            if ( $class->hasProperty( $attribute ) )
+            {
+                $prop = $class->getProperty( $attribute );
+                return $prop->getValue( $object );
+            }
+            $class = $class->getParentClass();
+        }
+        throw new ReflectionException(
+            'Property ' . get_class( $object ) . '::$' . $attribute . ' does not exist'
         );
     }
 
