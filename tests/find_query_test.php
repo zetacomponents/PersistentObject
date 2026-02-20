@@ -39,7 +39,7 @@ class ezcPersistentFindQueryTest extends ezcTestCase
         return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         try
         {
@@ -51,7 +51,7 @@ class ezcPersistentFindQueryTest extends ezcTestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unset( $this->db );
     }

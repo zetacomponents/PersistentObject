@@ -44,14 +44,14 @@ class ezcPersistentBasicIdentityMapTest extends ezcTestCase
         return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->definitionManager = new ezcPersistentCodeManager(
             dirname( __FILE__ ) . '/data'
         );
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 

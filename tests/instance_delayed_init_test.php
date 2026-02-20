@@ -37,7 +37,7 @@ class ezcPersistentObjectInstanceDelayedInitTest extends ezcTestCase
 {
     private $default;
 
-    public function setUp()
+    public function setUp(): void
     {
         try
         {

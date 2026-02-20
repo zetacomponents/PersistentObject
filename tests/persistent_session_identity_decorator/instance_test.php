@@ -35,7 +35,7 @@ class ezcPersistentSessionIdentityDecoratorInstanceTest extends ezcTestCase
 {
     private $default;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         try
         {

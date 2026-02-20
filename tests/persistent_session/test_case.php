@@ -48,7 +48,7 @@ class ezcPersistentSessionTest extends ezcTestCase
     protected $session = null;
     protected $hasTables = false;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         try
         {
@@ -69,7 +69,7 @@ class ezcPersistentSessionTest extends ezcTestCase
         );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         PersistentTestObject::cleanup();
     }

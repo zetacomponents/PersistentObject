@@ -43,7 +43,7 @@ class ezcPersistentDatabaseTypeTest extends ezcTestCase
         return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
-    public function setup()
+    public function setUp(): void
     {
         try
         {
@@ -61,7 +61,7 @@ class ezcPersistentDatabaseTypeTest extends ezcTestCase
         );
     }
 
-    public function teardown()
+    public function tearDown(): void
     {
         // DatabaseTypeTestObject::cleanup();
     }

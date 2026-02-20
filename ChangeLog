@@ -9,6 +9,7 @@
 - Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectRelations::offsetSet(), exchangeArray(), setFlags() and append().
 - Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectProperties::offsetSet(), exchangeArray(), setFlags() and append().
 - Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectColumns::offsetSet(), exchangeArray(), setFlags() and append().
+- Fixed: PHP 8.1 deprecation of missing return types in PHPUnit setUp() and tearDown() methods across all test classes.
 
 
 1.8.1 - Friday 26 March 2021

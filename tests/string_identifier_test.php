@@ -38,7 +38,7 @@ class ezcPersistentStringIdentifierTest extends ezcTestCase
 {
     private $session = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         try
         {
@@ -55,7 +55,7 @@ class ezcPersistentStringIdentifierTest extends ezcTestCase
                                                    new ezcPersistentCodeManager( dirname( __FILE__ ) . "/data/string_identifier" ) );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         MainTable::cleanup();
     }

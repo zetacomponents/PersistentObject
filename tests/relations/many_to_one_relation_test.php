@@ -44,7 +44,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
         return new \PHPUnit\Framework\TestSuite( "ezcPersistentManyToOneRelationTest" );
     }
 
-    public function setup()
+    public function setUp(): void
     {
         try
         {
@@ -62,7 +62,7 @@ class ezcPersistentManyToOneRelationTest extends ezcTestCase
         );
     }
 
-    public function teardown()
+    public function tearDown(): void
     {
         RelationTestEmployer::cleanup();
     }

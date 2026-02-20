@@ -48,7 +48,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         return new \PHPUnit\Framework\TestSuite( __CLASS__ );
     }
 
-    public function setup()
+    public function setUp(): void
     {
         try
         {
@@ -76,7 +76,7 @@ class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
         );
     }
 
-    public function teardown()
+    public function tearDown(): void
     {
         RelationTestEmployer::cleanup();
     }
