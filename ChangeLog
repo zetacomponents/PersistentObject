@@ -6,6 +6,9 @@
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentObjectDefinition::__construct().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentSessionIdentityDecorator::__construct().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentIdentity::__construct().
+- Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectRelations::offsetSet(), exchangeArray(), setFlags() and append().
+- Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectProperties::offsetSet(), exchangeArray(), setFlags() and append().
+- Fixed: PHP 8.1 deprecation of missing return types in ezcPersistentObjectColumns::offsetSet(), exchangeArray(), setFlags() and append().
 
 
 1.8.1 - Friday 26 March 2021
