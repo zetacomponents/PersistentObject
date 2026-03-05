@@ -1,11 +1,14 @@
-1.8.2 - Thursday 20 February 2026
+1.8.2 - Thursday 04 March 2026
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+- Fixed: PHP 8.5 deprecation of using 'null' as an array key, switch to ''.
+- Fixed: PHP 8.5 deprecation of SplObjectStorage::contains(), detach(), and attach().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentSaveHandler::saveInternal().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentObjectIdProperty::__construct().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentObjectDefinition::__construct().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentSessionIdentityDecorator::__construct().
 - Fixed: PHP 8.4 deprecation of implicit nullable parameter types in ezcPersistentIdentity::__construct().
+- Fixed: PHP 8.3 deprecation of dynamic property creation.
 - Fixed: PHP 8.1 deprecation of non-covariant return types in ezcPersistentFindIterator::rewind(), current(), key(), next() and valid().
 - Fixed: PHP 8.1 deprecation of non-covariant return types in ezcPersistentIdentityFindIterator::next().
 - Fixed: PHP 8.1 deprecation of non-covariant return types in ezcPersistentRelationCollection::offsetSet(), exchangeArray(), setFlags() and append().
