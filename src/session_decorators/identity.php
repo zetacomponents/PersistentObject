@@ -684,6 +684,9 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
      *
      * @throws ezcPersistentRelationNotFoundException
      *         if the given $object does not have a relation to $relatedClass.
+     *
+     * @throws ezcPersistentRelatedObjectNotFoundException
+     *         if there is no object of $relatedClass found for $object
      */
     public function getRelatedObject( $object, $relatedClass, $relationName = null )
     {
@@ -692,6 +695,14 @@ class ezcPersistentSessionIdentityDecorator implements ezcPersistentSessionFound
             $relatedClass,
             $relationName
         );
+        if ( empty( $relObjs ) ) {
+            // no object found, so throw same exception like it is thrown by
+            // ezcPersistentSession
+            throw new ezcPersistentRelatedObjectNotFoundException(
+                $object,
+                $relatedClass
+            );
+        }
         return reset( $relObjs );
     }
 
