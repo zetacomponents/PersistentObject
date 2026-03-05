@@ -64,7 +64,7 @@ class ezcPersistentSessionInstanceTest extends ezcTestCase
         $manager = new ezcPersistentCodeManager( dirname( __FILE__ ) . "/PersistentObject/tests/data/" );
         $session1 = new ezcPersistentSession( ezcDbInstance::get(), $manager );
         $manager2 = clone( $manager );
-        $manager2->a = "something";
+        @$manager2->a = "something";
         $session2 = new ezcPersistentSession( ezcDbInstance::get(), $manager2 );
 
         ezcPersistentSessionInstance::set( $session1 );

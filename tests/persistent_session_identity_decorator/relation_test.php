@@ -38,10 +38,9 @@ require_once dirname( __FILE__ ) . "/../data/relation_test_address.php";
 class ezcPersistentSessionIdentityDecoratorRelationTest extends ezcTestCase
 {
     protected $session;
-
     protected $idSession;
-
     protected $idMap;
+    protected $db;
 
     public static function suite()
     {

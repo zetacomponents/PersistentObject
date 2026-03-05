@@ -37,8 +37,8 @@ require_once dirname( __FILE__ ) . "/../data/relation_test_birthday.php";
  */
 class ezcPersistentOneToOneRelationTest extends ezcTestCase
 {
-
     private $session;
+    private $db;
 
     public static function suite()
     {

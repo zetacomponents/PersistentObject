@@ -35,12 +35,9 @@ require_once dirname( __FILE__ ) . '/relation_prefetch_test.php';
  */
 class ezcPersistentSessionIdentityDecoratorRelationObjectExtractorTest extends ezcPersistentSessionIdentityDecoratorRelationPrefetchTest
 {
-    protected $sesstion;
-
+    protected $session;
     protected $idMap;
-
     protected $extractor;
-
     protected $options;
 
     public static function suite()
