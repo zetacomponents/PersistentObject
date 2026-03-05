@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -54,7 +54,7 @@ class ezcPersistentSessionInstance
      * @see ezcPersistentSessionInstance::get()
      * @var string
      */
-    static private $defaultInstanceIdentifier = null;
+    static private $defaultInstanceIdentifier = '';
 
     /**
      * Holds the session instances.
@@ -79,9 +79,9 @@ class ezcPersistentSessionInstance
      * @param string $identifier
      * @return ezcPersistentSession
      */
-    public static function get( $identifier = null )
+    public static function get( $identifier = '' )
     {
-        if ( $identifier === null && self::$defaultInstanceIdentifier )
+        if ( $identifier === '' && self::$defaultInstanceIdentifier )
         {
             $identifier = self::$defaultInstanceIdentifier;
         }
@@ -115,9 +115,9 @@ class ezcPersistentSessionInstance
      * @param string $identifier the identifier of the database handler
      * @return void
      */
-    public static function set( ezcPersistentSessionFoundation $session, $identifier = null )
+    public static function set( ezcPersistentSessionFoundation $session, $identifier = '' )
     {
-        if ( $identifier === null )
+        if ( $identifier === '' )
         {
             $identifier = self::$defaultInstanceIdentifier;
         }
@@ -157,7 +157,7 @@ class ezcPersistentSessionInstance
      */
     public static function reset()
     {
-        self::$defaultInstanceIdentifier = null;
+        self::$defaultInstanceIdentifier = '';
         self::$instances = array();
     }
 }
