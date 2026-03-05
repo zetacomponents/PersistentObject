@@ -466,7 +466,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
         $relStore[$relId] = $relatedObject;
 
         // Store new reference
-        $this->identities[$relClass][$relId]->references->attach(
+        $this->identities[$relClass][$relId]->references->offsetSet(
             $relStore
         );
         
@@ -530,7 +530,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
         if ( isset( $srcIdentity->relatedObjects[$relationStoreName] ) )
         {
             unset( $srcIdentity->relatedObjects[$relationStoreName][$relId] );
-            $relIdentity->references->detach( $srcIdentity->relatedObjects[$relationStoreName] );
+            $relIdentity->references->offsetUnset( $srcIdentity->relatedObjects[$relationStoreName] );
         }
 
         foreach ( $srcIdentity->namedRelatedObjectSets as $setName => $rels )
@@ -538,7 +538,7 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
             if ( isset( $rels[$relId] ) && $rels[$relId] instanceof $relClass )
             {
                 unset( $srcIdentity->namedRelatedObjectSets[$setName][$relId] );
-                $relIdentity->references->detach(
+                $relIdentity->references->offsetUnset(
                     $srcIdentity->namedRelatedObjectSets[$setName]
                 );
             }
@@ -693,10 +693,10 @@ class ezcPersistentBasicIdentityMap implements ezcPersistentIdentityMap
             $def   = $this->definitionManager->fetchDefinition( $class );
             $state = $obj->getState();
             $id    = $state[$def->idProperty->propertyName];
-            
-            if ( $this->identities[$class][$id]->references->contains( $set ) )
+
+            if ( $this->identities[$class][$id]->references->offsetExists( $set ) )
             {
-                $this->identities[$class][$id]->references->detach( $set );
+                $this->identities[$class][$id]->references->offsetUnset( $set );
             }
         }
     }
