@@ -35,8 +35,8 @@ require_once dirname( __FILE__ ) . "/../data/multi_relation_test_person.php";
  */
 class ezcPersistentMultiRelationTest extends ezcTestCase
 {
-
     private $session;
+    private $db;
 
     public static function suite()
     {

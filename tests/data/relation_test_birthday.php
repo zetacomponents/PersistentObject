@@ -30,7 +30,7 @@ class RelationTestBirthday extends RelationTest
 {
     public $person   = null;
     public $birthday = null;
-
+    public $id       = null;
 
     public function setState( array $state )
     {

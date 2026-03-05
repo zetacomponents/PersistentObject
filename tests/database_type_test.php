@@ -35,8 +35,8 @@ require_once dirname( __FILE__ ) . "/data/database_type_test_object.php";
  */
 class ezcPersistentDatabaseTypeTest extends ezcTestCase
 {
-
     private $session;
+    private $db;
 
     public static function suite()
     {
