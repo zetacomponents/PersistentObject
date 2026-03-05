@@ -9,9 +9,9 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -38,7 +38,7 @@ class PersistentTestObjectCasesensitive
     public static function insertCleanData()
     {
         $db = ezcDbInstance::get();
-        $db->exec( "insert into " . $db->quoteIdentifier( "PO_test" ) . " (" 
+        $db->exec( "insert into " . $db->quoteIdentifier( "PO_test" ) . " ("
             . $db->quoteIdentifier( "Type_VarCHAR" ) . ", " . $db->quoteIdentifier( "tYPe_inTEGer" ) . ", "
             . $db->quoteIdentifier( "type_decimal" ) . ", " . $db->quoteIdentifier( "TYPE_TEXT" ) . " )
                     VALUES ('Sweden', 9006405, 449.96, 'Sweden has nice girls!' )" );
